@@ -4,8 +4,7 @@
 */
 
 module checksum (
-	input  [7:0] data,	//Dado
-	input  [7:0] crc,	//CRC
+	input  [15:0] data,	//Dado e CRC recebidos
 	output result		//Resultado
 );
 

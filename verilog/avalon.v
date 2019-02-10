@@ -20,7 +20,6 @@ module avalon (
 
 assign readdata[31:11] = 0;
 
-arbitro ARBITRO (.clock(clock), .reset(~resetn), .write(write), .writedata(writedata[7:0]), 
-		.readdata(readdata[7:0]), .done(readdata[8]), .con_error(readdata[10]), .crc_error(readdata[10]));
+arbitro ARBITRO (clock, ~reset, rx, tx, readdata[10:0]);
 
 endmodule
