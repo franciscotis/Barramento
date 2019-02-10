@@ -20,6 +20,6 @@ module avalon (
 
 assign readdata[31:11] = 0;
 
-arbitro ARBITRO (clock, ~reset, rx, tx, readdata[7:0], readdata[10:8]);
+arbitro ARBITRO (clock, ~reset, rx, tx, readdata[10:0]);
 
 endmodule

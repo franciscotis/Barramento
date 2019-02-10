@@ -9,80 +9,80 @@ z2
 cModel Technology
 dC:/Users/szk/Desktop/uart
 varbitro
-Z0 !s110 1549768855
+!s110 1549776389
 !i10b 1
-!s100 n`GKBVkk0[6mJ6V3N5e9T1
-IchHc?EdfG3<=c]OmVSMb?3
-Z1 VDg1SIo80bB@j0V0VzS_@n1
-Z2 dC:/Users/szk/Documents/GitHub/Barramento/verilog
-w1549768853
-8C:\Users\szk\Documents\GitHub\Barramento\verilog\arbitro.v
-FC:\Users\szk\Documents\GitHub\Barramento\verilog\arbitro.v
-L0 5
-Z3 OV;L;10.5b;63
+!s100 9KQHjOSa9;OQJ7oDB_]J82
+IGz^0g7APoOYN68H[>fF`>3
+Z0 VDg1SIo80bB@j0V0VzS_@n1
+Z1 dC:/Users/szk/Documents/GitHub/Barramento/verilog
+w1549776380
+8C:/Users/szk/Documents/GitHub/Barramento/verilog/arbitro.v
+FC:/Users/szk/Documents/GitHub/Barramento/verilog/arbitro.v
+L0 6
+Z2 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z4 !s108 1549768855.000000
-!s107 C:\Users\szk\Documents\GitHub\Barramento\verilog\arbitro.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:\Users\szk\Documents\GitHub\Barramento\verilog\arbitro.v|
+!s108 1549776389.000000
+!s107 C:/Users/szk/Documents/GitHub/Barramento/verilog/arbitro.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/szk/Documents/GitHub/Barramento/verilog/arbitro.v|
 !i113 1
-Z5 o-work work
-Z6 tCvgOpt 0
+Z3 o-work work
+Z4 tCvgOpt 0
 vavalon
-Z7 !s110 1549768856
+!s110 1549768856
 !i10b 1
 !s100 Sa7Me4Len74ce;3I4HZLH0
 IBK3Uab^DM@6NFg3WBK6Fh1
+R0
 R1
-R2
 w1549768839
 8C:\Users\szk\Documents\GitHub\Barramento\verilog\avalon.v
 FC:\Users\szk\Documents\GitHub\Barramento\verilog\avalon.v
 L0 5
-R3
+R2
 r1
 !s85 0
 31
-R4
+!s108 1549768855.000000
 !s107 C:\Users\szk\Documents\GitHub\Barramento\verilog\avalon.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:\Users\szk\Documents\GitHub\Barramento\verilog\avalon.v|
 !i113 1
-R5
-R6
+R3
+R4
 vchecksum
-R7
+!s110 1549776323
 !i10b 1
-!s100 BRT^j5UUK]o1[MGQM:[7l3
-Ic[YZf?^?4UF=_WGaE7R0g2
+!s100 ?9fdXLCOIINSmzdiYaM6n2
+IK6=lHW<RFehijng<<^YO^1
+R0
 R1
-R2
-w1549766961
+w1549776072
 8C:/Users/szk/Documents/GitHub/Barramento/verilog/checksum.v
 FC:/Users/szk/Documents/GitHub/Barramento/verilog/checksum.v
 L0 6
-R3
+R2
 r1
 !s85 0
 31
-Z8 !s108 1549768856.000000
+!s108 1549776323.000000
 !s107 C:/Users/szk/Documents/GitHub/Barramento/verilog/checksum.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/szk/Documents/GitHub/Barramento/verilog/checksum.v|
 !i113 1
-R5
-R6
+R3
+R4
 vcrc
 !s110 1549756269
 !i10b 1
 !s100 U;gBmhggX_i>95mbb2ALP2
 IM`A3S0ez3K=LSAm>7mK=O2
-R1
+R0
 dC:/Users/szk/Desktop/pbl
 w1549746802
 8C:/Users/szk/Desktop/pbl/crc.v
 FC:/Users/szk/Desktop/pbl/crc.v
 L0 1
-R3
+R2
 r1
 !s85 0
 31
@@ -90,47 +90,68 @@ r1
 !s107 C:/Users/szk/Desktop/pbl/crc.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/szk/Desktop/pbl/crc.v|
 !i113 1
-R5
-R6
-vuart_rx
-R7
-!i10b 1
-!s100 BoWdW5RBZ9PeYioLT4m>[3
-Ii2FWPF4]=z5W3Q]45TDS:1
-R1
-R2
-w1549768605
-8C:\Users\szk\Documents\GitHub\Barramento\verilog\uart_rx.v
-FC:\Users\szk\Documents\GitHub\Barramento\verilog\uart_rx.v
-L0 5
 R3
-r1
-!s85 0
-31
-R8
-!s107 C:\Users\szk\Documents\GitHub\Barramento\verilog\uart_rx.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:\Users\szk\Documents\GitHub\Barramento\verilog\uart_rx.v|
-!i113 1
-R5
-R6
-vuart_tx
-R0
-!i10b 1
-!s100 KP5N<<=TIE6[;;5<BXf672
-ID9LW]OVh:iHK3JU:?OzM:2
-R1
-R2
-w1549768597
-8C:\Users\szk\Documents\GitHub\Barramento\verilog\uart_tx.v
-FC:\Users\szk\Documents\GitHub\Barramento\verilog\uart_tx.v
-L0 5
-R3
-r1
-!s85 0
-31
 R4
-!s107 C:\Users\szk\Documents\GitHub\Barramento\verilog\uart_tx.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:\Users\szk\Documents\GitHub\Barramento\verilog\uart_tx.v|
+vfsm
+!s110 1549776328
+!i10b 1
+!s100 2mHamIXYB:c7dSZOn0Wi=3
+Ilb<3i1MnB6IbHSH8Y2DCk1
+R0
+R1
+w1549776301
+8C:/Users/szk/Documents/GitHub/Barramento/verilog/fsm.v
+FC:/Users/szk/Documents/GitHub/Barramento/verilog/fsm.v
+L0 5
+R2
+r1
+!s85 0
+31
+!s108 1549776328.000000
+!s107 C:/Users/szk/Documents/GitHub/Barramento/verilog/fsm.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/szk/Documents/GitHub/Barramento/verilog/fsm.v|
 !i113 1
-R5
-R6
+R3
+R4
+vuart_rx
+!s110 1549776311
+!i10b 1
+!s100 i:NI29PKz?2OFKnJZ`0;63
+I>AiMBj;i_=XNEC:GlbAUB3
+R0
+R1
+w1549776050
+8C:/Users/szk/Documents/GitHub/Barramento/verilog/uart_rx.v
+FC:/Users/szk/Documents/GitHub/Barramento/verilog/uart_rx.v
+L0 5
+R2
+r1
+!s85 0
+31
+!s108 1549776311.000000
+!s107 C:/Users/szk/Documents/GitHub/Barramento/verilog/uart_rx.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/szk/Documents/GitHub/Barramento/verilog/uart_rx.v|
+!i113 1
+R3
+R4
+vuart_tx
+!s110 1549776317
+!i10b 1
+!s100 zSb1hJ3IQiE[FZYTd9B[]2
+I;K[RzJ>mb3z@@XTd[li[]3
+R0
+R1
+w1549776061
+8C:/Users/szk/Documents/GitHub/Barramento/verilog/uart_tx.v
+FC:/Users/szk/Documents/GitHub/Barramento/verilog/uart_tx.v
+L0 5
+R2
+r1
+!s85 0
+31
+!s108 1549776317.000000
+!s107 C:/Users/szk/Documents/GitHub/Barramento/verilog/uart_tx.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/szk/Documents/GitHub/Barramento/verilog/uart_tx.v|
+!i113 1
+R3
+R4

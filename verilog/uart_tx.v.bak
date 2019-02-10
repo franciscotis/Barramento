@@ -8,7 +8,7 @@ module uart_tx (
 	input  [7:0] data,	//Byte a ser enviado
 	input  enable,		//Habilitado para iniciar envio
 	output reg active,	//Habilitado durante o envio
-	output reg done,		//Habilitado para envio concluído
+	output reg done,	//Habilitado para envio concluído
 	output reg tx		//Pino externo de saída do uart
 );
 
