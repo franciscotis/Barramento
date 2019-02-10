@@ -1,0 +1,7 @@
+module crc (
+	input [7:0] data,
+	input [7:0] crc,
+	output status
+);
+
+endmodule

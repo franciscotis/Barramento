@@ -1,0 +1,11 @@
+/*
+ * Cá
+*/
+
+module checksum (
+	input  [7:0] data,	//Dado
+	input  [7:0] crc,	//CRC
+	output result		//Resultado
+);
+
+endmodule
