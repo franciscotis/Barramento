@@ -1,0 +1,113 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "db_readdata[0]",
+					"strict" : false
+				},
+				{
+					"name" : "db_readdata[1]",
+					"strict" : false
+				},
+				{
+					"name" : "db_readdata[2]",
+					"strict" : false
+				},
+				{
+					"name" : "db_readdata[3]",
+					"strict" : false
+				},
+				{
+					"name" : "db_readdata[4]",
+					"strict" : false
+				},
+				{
+					"name" : "db_readdata[5]",
+					"strict" : false
+				},
+				{
+					"name" : "db_readdata[6]",
+					"strict" : false
+				},
+				{
+					"name" : "db_readdata[7]",
+					"strict" : false
+				},
+				{
+					"name" : "en_writeresponsevalid_n",
+					"strict" : false
+				},
+				{
+					"name" : "led_export[0]",
+					"strict" : false
+				},
+				{
+					"name" : "led_export[1]",
+					"strict" : false
+				},
+				{
+					"name" : "led_export[2]",
+					"strict" : false
+				},
+				{
+					"name" : "led_export[3]",
+					"strict" : false
+				},
+				{
+					"name" : "rs_writeresponsevalid_n",
+					"strict" : false
+				},
+				{
+					"name" : "uart_txd",
+					"strict" : false
+				},
+				{
+					"name" : "clk_clk",
+					"strict" : false
+				},
+				{
+					"name" : "btn_export[0]",
+					"strict" : false
+				},
+				{
+					"name" : "btn_export[1]",
+					"strict" : false
+				},
+				{
+					"name" : "btn_export[2]",
+					"strict" : false
+				},
+				{
+					"name" : "btn_export[3]",
+					"strict" : false
+				},
+				{
+					"name" : "reset_reset_n",
+					"strict" : false
+				},
+				{
+					"name" : "uart_rxd",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tms",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tck",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdi",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdo",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,18 @@
+module lcd(
+	input clk,
+	input clk_en,
+	input start,
+	input reset,
+	input[31:0] dataa,
+	input[31:0] datab,
+	
+	output[31:0] result,
+	output[7:0]  data,
+	output en,
+	output rs,
+	output rw,
+	output done
+);
+
+	
+	
