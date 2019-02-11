@@ -1,11 +1,11 @@
-/*
+	/*
  * Implementa a parte de emissor, do protocolo RS232
 */
 
-module uart_tx #(parameter clock_bit)(
+module uart_tx #(parameter clock_bit) (
 	input  clock,
 	input  reset,
-	input  [7:0] readdata,	//Byte a ser enviado
+	input  [7:0] writedata,	//Byte a ser enviado
 	input  enable,		//Habilitado para iniciar envio
 
 	output reg active,	//Habilitado durante o envio
@@ -13,12 +13,13 @@ module uart_tx #(parameter clock_bit)(
 	output reg tx		//Pino externo de saída do uart
 );
 
-parameter idle = 2'b00, start = 2'b01, data = 2'b10, stop = 2'b11; //Estados de envio
+//Estados de envio
+parameter idle = 2'd0, start = 2'd1, data = 2'd2, stop = 2'd3; 
 
 reg [1:0]  state;	//Estado atual
 reg [7:0]  byte;	//Byte a ser enviado
 reg [2:0]  index;	//Bit a ser enviado
-reg [15:0] counter;	//Usado para aguardar 1 período
+reg [15:0] counter;	//Usado para aguardar clock_bit ciclos
 
 
 always @(posedge clock, posedge reset) begin
@@ -37,10 +38,11 @@ always @(posedge clock, posedge reset) begin
 				active  <= 0;
 				done    <= 0;
 				tx      <= 1;
-			
+				
+				//Verifica se a trasmissão deve ser iniciada
 				if (enable) begin
 					active  <= 1;
-					byte    <= readdata;
+					byte    <= writedata;
 					index   <= 0;
 					counter <= 0;
 					state   <= start;
@@ -69,7 +71,7 @@ always @(posedge clock, posedge reset) begin
 				//Aguarda clock_bit cicloso
 				if (counter < clock_bit) begin
 					counter <= counter + 1;
-					state = data;
+					state   <= data;
 				end else begin
 					counter <= 0;
 					
@@ -84,19 +86,19 @@ always @(posedge clock, posedge reset) begin
 			
 			//Envia o stop bit (1)
 			stop: begin
-				tx <= 1;
+				tx   <= 1;
 
 				//Aguarda clock_bit ciclos
 				if (counter < clock_bit) begin
 					counter <= counter + 1;
 					state   <= stop;
 				end else begin
-					done   <= 1;
-					state  <= idle;
+					done  <= 1;
+					state <= idle;
 				end
 			end
-
-			default: state = idle;
+	
+			default: state <= idle;
 		endcase
 	end
 end

@@ -5,6 +5,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	uart_tx_tb
 
+} {} {}} C:/Users/szk/Documents/GitHub/Barramento/verilog/checksum_tb.v {1 {vlog -work work -stats=none C:/Users/szk/Documents/GitHub/Barramento/verilog/checksum_tb.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module checksum_tb
+
+Top level modules:
+	checksum_tb
+
 } {} {}} C:/Users/szk/Documents/GitHub/Barramento/verilog/uart_rx.v {1 {vlog -work work -stats=none C:/Users/szk/Documents/GitHub/Barramento/verilog/uart_rx.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module uart_rx
@@ -12,12 +19,21 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	uart_rx
 
-} {} {}} C:/Users/szk/Documents/GitHub/Barramento/verilog/fsm.v {0 {vlog -work work -stats=none C:/Users/szk/Documents/GitHub/Barramento/verilog/fsm.v
+} {} {}} C:/Users/szk/Documents/GitHub/Barramento/verilog/control.v {1 {vlog -work work -stats=none C:/Users/szk/Documents/GitHub/Barramento/verilog/control.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module fsm
-** Error: (vlog-13069) C:/Users/szk/Documents/GitHub/Barramento/verilog/fsm.v(17): near "input": syntax error, unexpected input, expecting ')'.
+-- Compiling module control
 
-} {4.0 5.0} {}} C:/Users/szk/Documents/GitHub/Barramento/verilog/uart_tx.v {1 {vlog -work work -stats=none C:/Users/szk/Documents/GitHub/Barramento/verilog/uart_tx.v
+Top level modules:
+	control
+
+} {} {}} C:/Users/szk/Documents/GitHub/Barramento/verilog/uart_rx_tb.v {1 {vlog -work work -stats=none C:/Users/szk/Documents/GitHub/Barramento/verilog/uart_rx_tb.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module uart_rx_tb
+
+Top level modules:
+	uart_rx_tb
+
+} {} {}} C:/Users/szk/Documents/GitHub/Barramento/verilog/uart_tx.v {1 {vlog -work work -stats=none C:/Users/szk/Documents/GitHub/Barramento/verilog/uart_tx.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module uart_tx
 
@@ -31,9 +47,11 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	checksum
 
-} {} {}} C:/Users/szk/Documents/GitHub/Barramento/verilog/arbitro.v {0 {vlog -work work -stats=none C:/Users/szk/Documents/GitHub/Barramento/verilog/arbitro.v
+} {} {}} C:/Users/szk/Documents/GitHub/Barramento/verilog/arbitro.v {1 {vlog -work work -stats=none C:/Users/szk/Documents/GitHub/Barramento/verilog/arbitro.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module arbitro
-** Error: (vlog-13038) C:/Users/szk/Documents/GitHub/Barramento/verilog/arbitro.v(17): near ")": Missing port in ansi port list.
 
-} {4.0 5.0} {}}
+Top level modules:
+	arbitro
+
+} {} {}}

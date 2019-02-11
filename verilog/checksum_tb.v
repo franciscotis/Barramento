@@ -15,11 +15,13 @@ reg [7:0] data, crc;
 //Saídas
 wire result;
 
-//Instância o módulo
-checksum dut (data, crc, result);
+//Instância do módulo
+checksum #(key) dut (data, crc, result);
 
 //Testes
 initial begin
+	$display("Início");
+
 	//CRC correto
 	data = 8'hAA;
 	crc  = data ^ key;
@@ -44,7 +46,10 @@ initial begin
 
 	data = 8'hAF;
 	crc  = data ^ (key - key);
-	if (result) $error("Error no cálculo do CRC de %b", data);	
+	if (result) $error("Error no cálculo do CRC de %b", data);
+
+	$display("Fim");
+	$finish;
 end
 
 endmodule

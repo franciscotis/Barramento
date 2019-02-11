@@ -12,13 +12,19 @@ parameter uart_clock_bit       = 434;
 
 //Entradas
 reg clock, reset, enable;
-reg [7:0] readdata;
+reg [7:0] writedata;
 
 //Saídas
 wire active, done, tx;
 
-//Instância o módulo
-uart_tx #(uart_clock_bit) dut (clock, reset, readdata, enable, active, done, tx);
+//Instância do módulo
+uart_tx #(uart_clock_bit) dut (.clock(clock), .reset(reset), .writedata(writedata), .enable(enable), .active(active), .done(done), .tx(tx));
+
+//Gera o clock
+always begin
+	clock = 0; #clock_half_period_ns;
+	clock = 1; #clock_half_period_ns;
+end
 
 //Envia 1 byte
 task send;
@@ -27,49 +33,47 @@ task send;
 	integer i;
 
 	begin		
-		$display("data (%b)", data);
-
 		result = 0;
-		readdata = data;
+		writedata = data;
 		enable   = 1;
 		@(posedge clock);
 		enable   = 0;
 		
+		//Recebe o idle e start bit, o byte de dados e o stop bit
 		for (i = 0; i < 11; i = i + 1) begin
-			$display("tx(%b), active(%b), done(%b)", tx, active, done);
+			if (i != 0 & ~active) $error("Erro - active = 0 durante o envio");
+			if (done)             $error("Erro - done = 1 durante o envio");
+
 			result[i] = tx;
-			repeat(uart_clock_bit) @(posedge clock);
+			repeat(uart_clock_bit) begin 
+				if (done) $display("Msg - done = 1 no stop bit");
+				@(posedge clock);
+			end
 		end
 
-		$display("result (%b)", result);
+		if (~result[0])  $error("Erro - bit de idle = 0");
+		if (result[1])   $error("Erro - start bit = 1");
+		if (~result[10]) $error("Erro - stop bit = 0");
+		if (result[9:2] != writedata) $error("Erro - dado recebido != enviado");
 	end
 endtask
 
-//Gera o clock
-always begin
-	clock = 0; #clock_half_period_ns;
-	clock = 1; #clock_half_period_ns;
-end
-
 //Testes
 initial begin
+	$display("Início (enviando 5 bytes)");
+
 	reset = 1;
 	repeat(2) @(posedge clock);
 	reset = 0;
 	repeat(2) @(posedge clock);
 	
-	$display("Envio 1");
-	send (8'b00001111);
-	$display("");
-
-	$display("Envio 2");
-	send (8'b11110000);
-	$display("");
-
-	$display("Envio 3");
-	send (8'b01010101);
-	$display("");
-
+	send (8'hAA);
+	send (8'hAB);
+	send (8'hAC);
+	send (8'hAD);
+	send (8'hAF);
+	
+	$display("Fim");
 	$finish;
 end
 

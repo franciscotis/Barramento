@@ -14,20 +14,47 @@ module arbitro (
 	input  [31:0] writedata,	//(Sem uso) Palavra(4 bytes) de escrita
 	output [31:0] readdata,		//([10:0] em uso) Número do sensor (000 para erro de colisão) e byte recebido
 	
+	//Entradas e saídas do uart RS232
+	input  rx,	//Pino externo de entrada
+	output tx	//Pino externo de saída
 );
 
+//uart_clock_bit = 50 Mhz / 115200 baud
+parameter uart_clock_bit = 434;
 
-//Declaração da FSM de controle do árbitro
-wire [7:0] o_sensor_fsm; //Número do sensor
-fsm FSM (.clock(clock), .reset(~reset), .done_rx(o_done_rx), .active_tx(o_active_tx), .done_tx(o_done_tx),
-	.result_crc(o_result_crc), .enable_tx(i_enable_tx), .sensor(o_sensor_fsm));
+//Declaração do módulodo receptor UART
+wire [7:0] data_rx;	//Byte recebido
+wire done_rx;		//Habilitado quando o byte é recebido
+uart_rx #(uart_clock_bit) UART_RX (.clock(clock), .reset(~resetn), .rx(rx), .data(data_rx), .done(done_rx));
 
+//Declaração do módulo emissor UART
+wire [7:0] data_tx;	//Byte a ser enviado
+wire enable_tx;		//Habilita o envio do byte
+wire active_tx;		//Habilitado enquanto o byte está sendo enviado
+wire done_tx;		//Habilitado quando o byte foi enviado
+uart_tx #(uart_clock_bit) UART_TX (.clock(clock), .reset(~resetn), .data(data_tx), .enable(enable_tx), 
+		.active(active_tx), .done(done_tx), .tx(tx));
+
+//Declaração do módulo de vericação do CRC
+wire [7:0] data_checksum;	//Dado recebido
+wire [7:0] crc_checksum;	//CRC recebido
+wire result_checksum;		//Resultado da verficação
+checksum CHECKSUM (.data(data_checksum), .crc(crc_checksum), .result(result_checksum));
+
+//Declaração do módulo de controle
+wire [7:0] data_control;	//Dado recebido
+wire [7:0] crc_control;		//CRC recebido
+wire [1:0] status_control;	//Status do dado
+control CONTROL (.clock(clock), .reset(~resetn), .enable(chipselect & write), .data_rx(data_rx), .done_rx(done_rx),
+		.active_tx(active_tx), .done_tx(done_tx), .result_checksum(result_checksum), .dado(data_control),
+		.crc(crc_control), .status(status_control), .enable_tx(enable_tx));
 
 //Atribuições contínuas
-assign i_data_tx = o_sensor_fsm;	//Número do sensor a ser enviado por tx
-
-assign readdata[31:11] = 0; 		//Completa a palavra com zeros
-assign readdata[7:0]   = o_data_rx[7:0];	//Dado recebido
-assign readdata[10:8]  = o_sensor_fsm;	//Número do sensor que enviou o dado, em caso de colisão a fsm coloca 000
+assign data_tx = writedata[7:0];		//Byte a ser enviado
+assign data_checksum   = data_control;		//Dado recebido
+assign crc_checksum    = crc_control;		//CRC recebido
+assign readdata[7:0]   = data_control;		//Dado a ser lido
+assign readdata[9:8]   = status_control;	//Status do dado
+assign readdata[31:10] = 0; 			//Completa readdata com zeros
 
 endmodule
