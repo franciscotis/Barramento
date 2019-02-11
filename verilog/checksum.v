@@ -10,4 +10,8 @@ module checksum (
 	output result		//Resultado
 );
 
+parameter [7:0] key = 8'b00110111;	//Chave para o cálculo do CRC
+
+assign result = (data ^ key) == crc;	//Calcula o CRC e compara com o recebido
+
 endmodule
