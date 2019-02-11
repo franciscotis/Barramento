@@ -11,13 +11,15 @@ module fsm (
 	input result_crc,
 	input  entry,			// Será utilizado para a mudança de estados
 	output reg enable_tx,
-	output reg [7:0] sensor
+	output reg [7:0] sensor,
+	output result,
 
 	//Entradas e saídas do uart RS232
 	input  rx,	//Pino externo de entrada
 	output tx	//Pino externo de saída
 );
-
+reg ddr_clk;
+reg [2] cnt;
 //Declaração do módulo emissor UART
 wire [7:0] i_data_tx;	//Número do sensor
 wire i_enable_tx;	//Habilita o envio do byte
@@ -31,8 +33,14 @@ wire o_done_rx;		//Habilitado quando os 2 bytes são recebidos
 //Declaração do módulo de vericação do CRC
 wire o_result_crc;	//Resultado da verficação
 
+uart_tx UART_TX (.clock(clock), .reset(~reset), .data(i_data_tx), .enable(i_enable_tx), 
+		.active(o_active_tx), .done(o_done_tx), .tx(tx));
 
 
+uart_rx UART_RX (.clock(clock), .reset(~reset), .rx(rx), .data(o_data_rx), .done(o_done_rx));
+
+	
+checksum CHECKSUM (.data(o_data_rx[7:0]), .crc(o_data_rx[15:8]), .result(o_result_crc));
 
 parameter [2:0] A = 3'b000, //Nomes dos estados 
 		B = 3'b001,
@@ -59,7 +67,6 @@ always @(posedge clock or negedge reset)
 
 always @(state) begin
 	next = 3'bx;
-	result = 8'b00000000;
 
 case(state)
 	A: 
@@ -72,54 +79,65 @@ case(state)
 	B:
 	if(entry == STATE_1) next = A;
 	else 
-		uart_tx UART_TX (.clock(clock), .reset(~reset), .data(i_data_tx), .enable(i_enable_tx), 
-		.active(o_active_tx), .done(o_done_tx), .tx(tx));
-		#10;
-		uart_rx UART_RX (.clock(clock), .reset(~reset), .rx(rx), .data(o_data_rx), .done(o_done_rx));	
-		#5;
-		checksum CHECKSUM (.data(o_data_rx[7:0]), .crc(o_data_rx[15:8]), .result(o_result_crc));
-		assign result = o_result_crc;
+begin
+		sensor = i_data_tx;
+		begin
+	if(!reset)
+		begin
+			cnt <= 3'b0;
+			ddr_clk <= 1'b0;
+		end
+	else
+		begin
+			cnt <= cnt+1'b1;
+			if(cnt==3'b111)
+			ddr_clk <= 1'b1;
+			else
+			ddr_clk <= 1'b0;
+		end
+end	
+			if(!o_done_tx && o_active_tx)
+			begin
+			enable_tx = i_enable_tx;
+			end	
+begin
+		sensor = i_data_tx;
+		begin
+	if(!reset)
+		begin
+			cnt <= 3'b0;
+			ddr_clk <= 1'b0;
+		end
+	else
+		begin
+			cnt <= cnt+1'b1;
+			if(cnt==3'b111)
+			ddr_clk <= 1'b1;
+			else
+			ddr_clk <= 1'b0;
+		end
+end	
+		if(o_done_rx)
+			data_rx  =  o_data_rx;
+		result = o_result_crc;
+end
+end
 	C:
 	if(entry == STATE_1) next = A;
-	else 
-		uart_tx UART_TX (.clock(clock), .reset(~reset), .data(i_data_tx), .enable(i_enable_tx), 
-		.active(o_active_tx), .done(o_done_tx), .tx(tx));
-		#10;
-		uart_rx UART_RX (.clock(clock), .reset(~reset), .rx(rx), .data(o_data_rx), .done(o_done_rx));	
-		#5;
-		checksum CHECKSUM (.data(o_data_rx[7:0]), .crc(o_data_rx[15:8]), .result(o_result_crc));
-		assign result = o_result_crc;
+	//else 
 	D:
 	if(entry == STATE_1) next = A;
-	else 
-		uart_tx UART_TX (.clock(clock), .reset(~reset), .data(i_data_tx), .enable(i_enable_tx), 
-		.active(o_active_tx), .done(o_done_tx), .tx(tx));
-		#10;
-		uart_rx UART_RX (.clock(clock), .reset(~reset), .rx(rx), .data(o_data_rx), .done(o_done_rx));	
-		#5;
-		checksum CHECKSUM (.data(o_data_rx[7:0]), .crc(o_data_rx[15:8]), .result(o_result_crc));
-		assign result = o_result_crc;
+	//else 
+		
 		
 	E:
 	if(entry == STATE_1) next = A;
-	else 
-		uart_tx UART_TX (.clock(clock), .reset(~reset), .data(i_data_tx), .enable(i_enable_tx), 
-		.active(o_active_tx), .done(o_done_tx), .tx(tx));
-		#10;
-		uart_rx UART_RX (.clock(clock), .reset(~reset), .rx(rx), .data(o_data_rx), .done(o_done_rx));	
-		#5;
-		checksum CHECKSUM (.data(o_data_rx[7:0]), .crc(o_data_rx[15:8]), .result(o_result_crc));
-		assign result = o_result_crc;
+	//else 
+		
 	F:
 	if(entry == STATE_1) next = A;
-	else 
-		uart_tx UART_TX (.clock(clock), .reset(~reset), .data(i_data_tx), .enable(i_enable_tx), 
-		.active(o_active_tx), .done(o_done_tx), .tx(tx));
-		#10;
-		uart_rx UART_RX (.clock(clock), .reset(~reset), .rx(rx), .data(o_data_rx), .done(o_done_rx));	
-		#5;
-		checksum CHECKSUM (.data(o_data_rx[7:0]), .crc(o_data_rx[15:8]), .result(o_result_crc));
-		assign result = o_result_crc;
+	//else 
+		
 
 endcase
 end
