@@ -60,12 +60,16 @@ initial begin
 	
 	$display("Envio 1");
 	send (8'b00001111);
+	$display("");
 
 	$display("Envio 2");
-	send (8'b00001111);
+	send (8'b11110000);
+	$display("");
 
 	$display("Envio 3");
-	send (8'b00001111);
+	send (8'b01010101);
+	$display("");
+
 	$finish;
 end
 

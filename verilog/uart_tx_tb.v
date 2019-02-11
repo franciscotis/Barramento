@@ -17,7 +17,7 @@ reg [7:0] readdata;
 //Saídas
 wire active, done, tx;
 
-//Instancia o módulo
+//Instância o módulo
 uart_tx #(uart_clock_bit) dut (clock, reset, readdata, enable, active, done, tx);
 
 //Envia 1 byte
