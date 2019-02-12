@@ -1,0 +1,16 @@
+Fitter Status : Successful - Tue Feb 12 15:59:27 2019
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : arbitro
+Top-level Entity Name : architecture
+Family : Cyclone IV E
+Device : EP4CE30F23C6
+Timing Models : Final
+Total logic elements : 1,796 / 28,848 ( 6 % )
+    Total combinational functions : 1,668 / 28,848 ( 6 % )
+    Dedicated logic registers : 981 / 28,848 ( 3 % )
+Total registers : 981
+Total pins : 4 / 329 ( 1 % )
+Total virtual pins : 0
+Total memory bits : 273,408 / 608,256 ( 45 % )
+Embedded Multiplier 9-bit elements : 0 / 132 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )

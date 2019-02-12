@@ -1,0 +1,18 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst architecture -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst architecture.nios.cpu -pg 1
+preplace inst architecture.nios.reset_bridge -pg 1
+preplace inst architecture.nios.clock_bridge -pg 1
+preplace inst architecture.memory -pg 1 -lvl 3 -y 30
+preplace inst architecture.jtag -pg 1 -lvl 3 -y 110
+preplace inst architecture.clk -pg 1 -lvl 1 -y 290
+preplace inst architecture.nios -pg 1 -lvl 2 -y 80
+preplace netloc EXPORT<net_container>architecture</net_container>(SLAVE)clk.clk_in,(SLAVE)architecture.clk) 1 0 1 NJ
+preplace netloc INTERCONNECT<net_container>architecture</net_container>(SLAVE)nios.debug_mem_slave,(SLAVE)jtag.avalon_jtag_slave,(MASTER)nios.data_master,(SLAVE)memory.s1,(MASTER)nios.instruction_master) 1 1 2 300 220 680
+preplace netloc POINT_TO_POINT<net_container>architecture</net_container>(MASTER)nios.irq,(SLAVE)jtag.irq) 1 2 1 720
+preplace netloc EXPORT<net_container>architecture</net_container>(SLAVE)architecture.reset,(SLAVE)clk.clk_in_reset) 1 0 1 NJ
+preplace netloc INTERCONNECT<net_container>architecture</net_container>(SLAVE)nios.reset,(MASTER)clk.clk_reset,(MASTER)nios.debug_reset_request,(SLAVE)jtag.reset,(SLAVE)memory.reset1) 1 1 2 280 260 660
+preplace netloc FAN_OUT<net_container>architecture</net_container>(MASTER)clk.clk,(SLAVE)nios.clk,(SLAVE)memory.clk1,(SLAVE)jtag.clk) 1 1 2 260 240 700
+levelinfo -pg 1 0 50 900
+levelinfo -hier architecture 60 90 420 750 890

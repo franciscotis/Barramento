@@ -1,0 +1,9 @@
+	component architecture is
+		port (
+			clk_clk       : in  std_logic := 'X'; -- clk
+			reset_reset_n : in  std_logic := 'X'; -- reset_n
+			uart_write    : out std_logic;        -- write
+			uart_read     : in  std_logic := 'X'  -- read
+		);
+	end component architecture;
+

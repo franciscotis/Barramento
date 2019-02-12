@@ -1,0 +1,34 @@
+
+State Machine - |architecture|architecture_nios:nios|architecture_nios_cpu:cpu|architecture_nios_cpu_nios2_oci:the_architecture_nios_cpu_nios2_oci|architecture_nios_cpu_debug_slave_wrapper:the_architecture_nios_cpu_debug_slave_wrapper|architecture_nios_cpu_debug_slave_tck:the_architecture_nios_cpu_debug_slave_tck|DRsize
+Name DRsize.101 DRsize.100 DRsize.011 DRsize.010 DRsize.001 DRsize.000 
+DRsize.000 0 0 0 0 0 0 
+DRsize.001 0 0 0 0 1 1 
+DRsize.010 0 0 0 1 0 1 
+DRsize.011 0 0 1 0 0 1 
+DRsize.100 0 1 0 0 0 1 
+DRsize.101 1 0 0 0 0 1 
+
+State Machine - |architecture|arbitro:arbitro|control:CONTROL|state
+Name state.S7 state.S6 state.S5 state.S4 state.S3 state.S2 state.S1 state.S0 
+state.S0 0 0 0 0 0 0 0 0 
+state.S1 0 0 0 0 0 0 1 1 
+state.S2 0 0 0 0 0 1 0 1 
+state.S3 0 0 0 0 1 0 0 1 
+state.S4 0 0 0 1 0 0 0 1 
+state.S5 0 0 1 0 0 0 0 1 
+state.S6 0 1 0 0 0 0 0 1 
+state.S7 1 0 0 0 0 0 0 1 
+
+State Machine - |architecture|arbitro:arbitro|uart_tx:UART_TX|state
+Name state.stop state.data state.start state.idle 
+state.idle 0 0 0 0 
+state.start 0 0 1 1 
+state.data 0 1 0 1 
+state.stop 1 0 0 1 
+
+State Machine - |architecture|arbitro:arbitro|uart_rx:UART_RX|state
+Name state.stop state.data state.start state.idle 
+state.idle 0 0 0 0 
+state.start 0 0 1 1 
+state.data 0 1 0 1 
+state.stop 1 0 0 1 
