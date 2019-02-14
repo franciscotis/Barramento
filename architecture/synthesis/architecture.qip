@@ -2,7 +2,7 @@ set_global_assignment -entity "architecture" -library "architecture" -name IP_TO
 set_global_assignment -entity "architecture" -library "architecture" -name IP_TOOL_VERSION "18.1"
 set_global_assignment -entity "architecture" -library "architecture" -name IP_TOOL_ENV "Qsys"
 set_global_assignment -library "architecture" -name SOPCINFO_FILE [file join $::quartus(qip_path) "../../architecture.sopcinfo"]
-set_global_assignment -entity "architecture" -library "architecture" -name SLD_INFO "QSYS_NAME architecture HAS_SOPCINFO 1 GENERATION_ID 1549997825"
+set_global_assignment -entity "architecture" -library "architecture" -name SLD_INFO "QSYS_NAME architecture HAS_SOPCINFO 1 GENERATION_ID 1550153285"
 set_global_assignment -library "architecture" -name MISC_FILE [file join $::quartus(qip_path) "../architecture.cmp"]
 set_global_assignment -library "architecture" -name SLD_FILE [file join $::quartus(qip_path) "architecture.regmap"]
 set_global_assignment -library "architecture" -name SLD_FILE [file join $::quartus(qip_path) "architecture.debuginfo"]
@@ -16,7 +16,7 @@ set_global_assignment -entity "architecture" -library "architecture" -name IP_CO
 set_global_assignment -entity "architecture" -library "architecture" -name IP_COMPONENT_REPORT_HIERARCHY "On"
 set_global_assignment -entity "architecture" -library "architecture" -name IP_COMPONENT_INTERNAL "Off"
 set_global_assignment -entity "architecture" -library "architecture" -name IP_COMPONENT_VERSION "MS4w"
-set_global_assignment -entity "architecture" -library "architecture" -name IP_COMPONENT_PARAMETER "QVVUT19HRU5FUkFUSU9OX0lE::MTU0OTk5NzgyNQ==::QXV0byBHRU5FUkFUSU9OX0lE"
+set_global_assignment -entity "architecture" -library "architecture" -name IP_COMPONENT_PARAMETER "QVVUT19HRU5FUkFUSU9OX0lE::MTU1MDE1MzI4NQ==::QXV0byBHRU5FUkFUSU9OX0lE"
 set_global_assignment -entity "architecture" -library "architecture" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0VfRkFNSUxZ::Q3ljbG9uZSBJViBF::QXV0byBERVZJQ0VfRkFNSUxZ"
 set_global_assignment -entity "architecture" -library "architecture" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0U=::RVA0Q0UzMEYyM0M2::QXV0byBERVZJQ0U="
 set_global_assignment -entity "architecture" -library "architecture" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0VfU1BFRURHUkFERQ==::Ng==::QXV0byBERVZJQ0VfU1BFRURHUkFERQ=="

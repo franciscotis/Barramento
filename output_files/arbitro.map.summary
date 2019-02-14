@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Tue Feb 12 15:59:04 2019
+Analysis & Synthesis Status : Successful - Thu Feb 14 11:10:01 2019
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : arbitro
 Top-level Entity Name : architecture
 Family : Cyclone IV E
-Total logic elements : 1,875
-    Total combinational functions : 1,664
-    Dedicated logic registers : 989
-Total registers : 989
+Total logic elements : 1,848
+    Total combinational functions : 1,661
+    Dedicated logic registers : 988
+Total registers : 988
 Total pins : 4
 Total virtual pins : 0
 Total memory bits : 273,408

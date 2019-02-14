@@ -15,10 +15,26 @@
 
 int main() {
 	int offset   = 0;
-	int sensor   = 0; //Número do sensor
+	int sensor   = 1; //Número do sensor
 	int response = 0; //Resposta do árbitro
 	int status   = 0; //Status
 
+	while (1) {
+		IOWR(ARBITRO_BASE, offset, sensor); //Solicita o dado do sensor
+
+		do {
+			response = IORD(ARBITRO_BASE, offset);
+			status   = (status_mask & response) >> 8; //Calcula o status
+		} while (status < 2);
+
+		printf("Sensor: %d - Status: %d - Dado: %d\n",
+				sensor, status, (data_mask & response));
+
+		if (sensor < 4) sensor++;
+		else sensor = 1;
+	}
+
+	/*
 	while (1) {
 		if (sensor < 5) {
 			IOWR(ARBITRO_BASE, offset, sensor); //Solicita o dado do sensor
@@ -35,6 +51,6 @@ int main() {
 		} else
 			sensor = 0;
 	}
-
+	*/
 	return 0;
 }

@@ -7,7 +7,7 @@
 module checksum_tb ();
 
 //Chave para o cálculo do CRC
-parameter [7:0] key = 8'b00110111;	
+localparam [7:0] key = 8'b00110111;	
 
 //Entradas
 reg [7:0] data, crc;

@@ -2,32 +2,28 @@
  * Implementa a parte de emissor, do protocolo rs232
 */
 
-module uart_tx #(parameter clock_bit) (
-	input  clock,
-	input  reset,
+module uart_tx #(parameter [15:0] clock_bit) (
+	input        clock,
+	input        resetn,
 	input  [7:0] writedata,	//Byte a ser enviado
-	input  enable,			//Habilitado para iniciar envio
+	input        enable,	//Habilitado para iniciar envio
 
-	output reg active,		//Habilitado durante o envio
-	output reg done,		//Habilitado quando o envio é concluído
-	output reg tx			//Pino externo de saída do uart
+	output reg   done,	//Habilitado quando o envio é concluído
+	output reg   tx		//Pino externo de saída do uart
 );
 
-//Estados de envio
-localparam idle = 2'b00, start = 2'b01, data = 2'b10, stop = 2'b11; 
+localparam idle = 2'b00, start = 2'b01, data = 2'b10, stop = 2'b11;  //Estados
 
-reg [1:0]  state;	//Estado atual
-reg [7:0]  temp;	//Byte a ser enviado
-reg [2:0]  index;	//Bit a ser enviado
-reg [15:0] counter;	//Usado para aguardar clock_bit ciclos
+reg [1:0]  state;   //Estado atual
+reg [7:0]  send;    //Byte a ser enviado
+reg [2:0]  index;   //Bit a ser enviado
+reg [15:0] counter; //Usado para aguardar clock_bit ciclos
 
-
-always @(posedge clock, posedge reset) begin
-	if (reset) begin
-		active  <= 0;
+always @(posedge clock) begin
+	if (!resetn) begin
 		done    <= 0;
 		tx      <= 1; 
-		temp    <= 0;
+		send    <= 0;
 		index   <= 0;
 		counter <= 0;
 		state   <= idle;
@@ -35,19 +31,17 @@ always @(posedge clock, posedge reset) begin
 		case (state)
 			//Estado inicial
 			idle: begin
-				active  <= 0;
 				done    <= 0;
 				tx      <= 1;
+				index   <= 0;
+				counter <= 0;
 				
 				//Verifica se a trasmissão deve ser iniciada
 				if (enable) begin
-					active  <= 1;
-					temp    <= writedata;
-					index   <= 0;
-					counter <= 0;
-					state   <= start;
+					send  <= writedata;
+					state <= start;
 				end else
-					state   <= idle;
+					state <= idle;
 			end
 			
 			//Envia o start bit (0)
@@ -56,7 +50,7 @@ always @(posedge clock, posedge reset) begin
 				
 				//Aguarda clock_bit ciclos
 				if (counter < clock_bit) begin
-					counter <= counter + 16'h0001;
+					counter <= counter + 1;
 					state   <= start;
 				end else begin
 					counter <= 0;
@@ -66,18 +60,18 @@ always @(posedge clock, posedge reset) begin
 			
 			//Envia 8 bits em sequência
 			data: begin
-				tx <= temp[index];	//Envia um bit
+				tx <= send[index]; //Envia um bit
 				
-				//Aguarda clock_bit cicloso
+				//Aguarda clock_bit ciclos
 				if (counter < clock_bit) begin
-					counter <= counter + 16'h0001;
+					counter <= counter + 1;
 					state   <= data;
 				end else begin
 					counter <= 0;
 					
 					//Verifica se todos o bits foram enviados
 					if (index < 7) begin
-						index <= index + 3'b001;
+						index <= index + 1;
 						state <= data;
 					end else
 						state <= stop;
@@ -90,7 +84,7 @@ always @(posedge clock, posedge reset) begin
 
 				//Aguarda clock_bit ciclos
 				if (counter < clock_bit) begin
-					counter <= counter + 16'h0001;
+					counter <= counter + 1;
 					state   <= stop;
 				end else begin
 					done    <= 1;

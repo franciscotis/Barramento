@@ -42,11 +42,11 @@ Info: architecture.jtag: JTAG UART IP input clock need to be at least double (2x
 Info: architecture: Generating architecture "architecture" for QUARTUS_SYNTH
 Info: arbitro: "architecture" instantiated arbitro "arbitro"
 Info: jtag: Starting RTL generation for module 'architecture_jtag'
-Info: jtag:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=architecture_jtag --dir=C:/Users/szk/AppData/Local/Temp/alt7939_3152476504798586203.dir/0003_jtag_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/szk/AppData/Local/Temp/alt7939_3152476504798586203.dir/0003_jtag_gen//architecture_jtag_component_configuration.pl  --do_build_sim=0  ]
+Info: jtag:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=architecture_jtag --dir=C:/Users/szk/AppData/Local/Temp/alt7941_4729587338581417134.dir/0004_jtag_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/szk/AppData/Local/Temp/alt7941_4729587338581417134.dir/0004_jtag_gen//architecture_jtag_component_configuration.pl  --do_build_sim=0  ]
 Info: jtag: Done RTL generation for module 'architecture_jtag'
 Info: jtag: "architecture" instantiated altera_avalon_jtag_uart "jtag"
 Info: memory: Starting RTL generation for module 'architecture_memory'
-Info: memory:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=architecture_memory --dir=C:/Users/szk/AppData/Local/Temp/alt7939_3152476504798586203.dir/0004_memory_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/szk/AppData/Local/Temp/alt7939_3152476504798586203.dir/0004_memory_gen//architecture_memory_component_configuration.pl  --do_build_sim=0  ]
+Info: memory:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=architecture_memory --dir=C:/Users/szk/AppData/Local/Temp/alt7941_4729587338581417134.dir/0005_memory_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/szk/AppData/Local/Temp/alt7941_4729587338581417134.dir/0005_memory_gen//architecture_memory_component_configuration.pl  --do_build_sim=0  ]
 Info: memory: Done RTL generation for module 'architecture_memory'
 Info: memory: "architecture" instantiated altera_avalon_onchip_memory2 "memory"
 Info: nios: "architecture" instantiated altera_nios2_gen2 "nios"
@@ -58,19 +58,19 @@ Info: mm_interconnect_0: "architecture" instantiated altera_mm_interconnect "mm_
 Info: irq_mapper: "architecture" instantiated altera_irq_mapper "irq_mapper"
 Info: rst_controller: "architecture" instantiated altera_reset_controller "rst_controller"
 Info: cpu: Starting RTL generation for module 'architecture_nios_cpu'
-Info: cpu:   Generation command is [exec C:/intelFPGA_lite/18.1/quartus/bin64//eperlcmd.exe -I C:/intelFPGA_lite/18.1/quartus/bin64//perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I C:/intelfpga_lite/18.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I C:/intelfpga_lite/18.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I C:/intelfpga_lite/18.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- C:/intelfpga_lite/18.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.epl --name=architecture_nios_cpu --dir=C:/Users/szk/AppData/Local/Temp/alt7939_3152476504798586203.dir/0007_cpu_gen/ --quartus_bindir=C:/intelFPGA_lite/18.1/quartus/bin64/ --verilog --config=C:/Users/szk/AppData/Local/Temp/alt7939_3152476504798586203.dir/0007_cpu_gen//architecture_nios_cpu_processor_configuration.pl  --do_build_sim=0  ]
-Info: cpu: # 2019.02.12 15:57:25 (*) Starting Nios II generation
-Info: cpu: # 2019.02.12 15:57:25 (*)   Checking for plaintext license.
-Info: cpu: # 2019.02.12 15:57:26 (*)   Couldn't query license setup in Quartus directory C:/intelFPGA_lite/18.1/quartus/bin64/
-Info: cpu: # 2019.02.12 15:57:26 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
-Info: cpu: # 2019.02.12 15:57:26 (*)   LM_LICENSE_FILE environment variable is empty
-Info: cpu: # 2019.02.12 15:57:26 (*)   Plaintext license not found.
-Info: cpu: # 2019.02.12 15:57:26 (*)   No license required to generate encrypted Nios II/e.
-Info: cpu: # 2019.02.12 15:57:26 (*)   Elaborating CPU configuration settings
-Info: cpu: # 2019.02.12 15:57:26 (*)   Creating all objects for CPU
-Info: cpu: # 2019.02.12 15:57:28 (*)   Generating RTL from CPU objects
-Info: cpu: # 2019.02.12 15:57:28 (*)   Creating plain-text RTL
-Info: cpu: # 2019.02.12 15:57:29 (*) Done Nios II generation
+Info: cpu:   Generation command is [exec C:/intelFPGA_lite/18.1/quartus/bin64//eperlcmd.exe -I C:/intelFPGA_lite/18.1/quartus/bin64//perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I C:/intelfpga_lite/18.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I C:/intelfpga_lite/18.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I C:/intelfpga_lite/18.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- C:/intelfpga_lite/18.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.epl --name=architecture_nios_cpu --dir=C:/Users/szk/AppData/Local/Temp/alt7941_4729587338581417134.dir/0008_cpu_gen/ --quartus_bindir=C:/intelFPGA_lite/18.1/quartus/bin64/ --verilog --config=C:/Users/szk/AppData/Local/Temp/alt7941_4729587338581417134.dir/0008_cpu_gen//architecture_nios_cpu_processor_configuration.pl  --do_build_sim=0  ]
+Info: cpu: # 2019.02.14 11:08:27 (*) Starting Nios II generation
+Info: cpu: # 2019.02.14 11:08:27 (*)   Checking for plaintext license.
+Info: cpu: # 2019.02.14 11:08:29 (*)   Couldn't query license setup in Quartus directory C:/intelFPGA_lite/18.1/quartus/bin64/
+Info: cpu: # 2019.02.14 11:08:29 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
+Info: cpu: # 2019.02.14 11:08:29 (*)   LM_LICENSE_FILE environment variable is empty
+Info: cpu: # 2019.02.14 11:08:29 (*)   Plaintext license not found.
+Info: cpu: # 2019.02.14 11:08:29 (*)   No license required to generate encrypted Nios II/e.
+Info: cpu: # 2019.02.14 11:08:29 (*)   Elaborating CPU configuration settings
+Info: cpu: # 2019.02.14 11:08:29 (*)   Creating all objects for CPU
+Info: cpu: # 2019.02.14 11:08:31 (*)   Generating RTL from CPU objects
+Info: cpu: # 2019.02.14 11:08:31 (*)   Creating plain-text RTL
+Info: cpu: # 2019.02.14 11:08:32 (*) Done Nios II generation
 Info: cpu: Done RTL generation for module 'architecture_nios_cpu'
 Info: cpu: "nios" instantiated altera_nios2_gen2_unit "cpu"
 Info: nios_data_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "nios_data_master_translator"

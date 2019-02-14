@@ -1,0 +1,46 @@
+/*
+ * Arbitro de barramento
+ * Implementa as entradas e saídas para a interface avalon mm slave e uart rs232
+*/
+
+module arbitro (
+	//Entradas e saídas da interface avalon mm
+	input  clock,
+	input  resetn,            //Reset em 0
+	input  write,             //Habilitado durante escrita
+	input  read,              //(Sem uso) Habilitado durante leitura
+	input  chipselect,        //Habilitado durante escrita ou leitura
+	input  [3:0]  byteenable, //(Sem uso) Posição do byte escrito em writedata
+	input  [31:0] writedata,  //([7:0] em uso) byte a ser enviado
+	output [31:0] readdata,   //([9:0] em uso), status ([9:8]), byte recebido ([7:0])
+	
+	//Entradas e saídas do uart RS232
+	input  rx, //Pino externo de entrada
+	output tx  //Pino externo de saída
+);
+
+parameter uart_clock_bit = 5208; //50 Mhz / 9600 baud
+parameter key = 8'b00110111;     //Chave para o cálculo do CRC
+
+//Declaração do módulo do receptor UART
+wire i_resetn_rx;
+wire [7:0] o_data_rx; //Byte recebido
+wire o_done_rx;       //Habilitado quando o byte é recebido
+uart_rx #(uart_clock_bit) UART_RX (.clock(clock), .resetn(resetn_rx), .rx(rx), .readdata(o_data_rx), .done(o_done_rx));
+
+//Declaração do módulo do emissor UART
+wire i_resetn_tx;
+wire i_enable_tx; //Habilita o envio do byte
+wire o_done_tx;   //Habilitado quando o byte foi enviado
+uart_tx #(uart_clock_bit) UART_TX (.clock(clock), .resetn(resetn_tx), .writedata(writedata[7:0]), .enable(i_enable_tx), .done(o_done_tx), .tx(tx));
+
+//Declaração do módulo de controle
+control CONTROL (.clock(clock), .resetn(resetn), .enable(chipselect & write), 
+		.data_rx(o_data_rx), .done_rx(o_done_rx), .done_tx(o_done_tx), 
+		.resetn_rx(i_resetn_rx), .resetn_tx(resetn_tx), .enable_tx(i_enable_tx),
+		.data(readdata[7:0]), .status(readdata[9:8]));
+
+//Atribuições contínuas
+assign readdata[31:10] = 0; //Completa readdata com zeros
+
+endmodule

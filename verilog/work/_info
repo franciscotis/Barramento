@@ -9,170 +9,170 @@ z2
 cModel Technology
 dC:/Users/szk/Documents/GitHub/Barramento/verilog
 varbitro
-!s110 1549996752
+Z0 !s110 1550125268
 !i10b 1
-!s100 f=j5RQa@GUQ<OO?Do?7iU0
-IBa?f=4j@1fAePIB1^jzP30
-Z0 VDg1SIo80bB@j0V0VzS_@n1
-Z1 dC:/Users/szk/Desktop/arbitro/verilog
-w1549996722
+!s100 z[UYTLXlLDWMJC8O0M`LX1
+IgX8?;N283_cPj0g=Z6QW53
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/szk/Desktop/arbitro/verilog
+w1550125104
 8C:/Users/szk/Desktop/arbitro/verilog/arbitro.v
 FC:/Users/szk/Desktop/arbitro/verilog/arbitro.v
 L0 6
-Z2 OV;L;10.5b;63
+Z3 OV;L;10.5b;63
 r1
 !s85 0
 31
-!s108 1549996752.000000
+Z4 !s108 1550125267.000000
 !s107 C:/Users/szk/Desktop/arbitro/verilog/arbitro.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/szk/Desktop/arbitro/verilog/arbitro.v|
 !i113 1
-Z3 o-work work
-Z4 tCvgOpt 0
+Z5 o-work work
+Z6 tCvgOpt 0
 vchecksum
-!s110 1549991886
+R0
 !i10b 1
 !s100 e?Y_al_[f>`MQI;9c6GUJ1
-ID^O<VaImL`13V^lZ:n]573
-R0
+Ie5GQ:I^T<TDh[dHEO?>]g3
 R1
-w1549991823
-8C:\Users\szk\Desktop\arbitro\verilog\checksum.v
-FC:\Users\szk\Desktop\arbitro\verilog\checksum.v
+R2
+w1550098955
+8C:/Users/szk/Desktop/arbitro/verilog/checksum.v
+FC:/Users/szk/Desktop/arbitro/verilog/checksum.v
 L0 6
-R2
+R3
 r1
 !s85 0
 31
-!s108 1549991886.000000
-!s107 C:\Users\szk\Desktop\arbitro\verilog\checksum.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:\Users\szk\Desktop\arbitro\verilog\checksum.v|
+Z7 !s108 1550125268.000000
+!s107 C:/Users/szk/Desktop/arbitro/verilog/checksum.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/szk/Desktop/arbitro/verilog/checksum.v|
 !i113 1
-R3
-R4
+R5
+R6
 vchecksum_tb
-!s110 1549991892
-!i10b 1
-!s100 HfiFMT;W>jfIi^Se0h9>U2
-I0oW;l2=60fI80YejOaK2]3
 R0
+!i10b 1
+!s100 h_K>CgkcOQgR0Wg[5_bT53
+I9z?<JXd;C3=cdbJ@J430O0
 R1
-w1549905795
-8C:\Users\szk\Desktop\arbitro\verilog\checksum_tb.v
-FC:\Users\szk\Desktop\arbitro\verilog\checksum_tb.v
-L0 7
 R2
+w1550099033
+8C:/Users/szk/Desktop/arbitro/verilog/checksum_tb.v
+FC:/Users/szk/Desktop/arbitro/verilog/checksum_tb.v
+L0 7
+R3
 r1
 !s85 0
 31
-!s108 1549991892.000000
-!s107 C:\Users\szk\Desktop\arbitro\verilog\checksum_tb.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:\Users\szk\Desktop\arbitro\verilog\checksum_tb.v|
+R7
+!s107 C:/Users/szk/Desktop/arbitro/verilog/checksum_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/szk/Desktop/arbitro/verilog/checksum_tb.v|
 !i113 1
-R3
-R4
+R5
+R6
 vcontrol
-!s110 1549996758
-!i10b 1
-!s100 0M2UKd6ib=3?OY9@77I`U2
-IHc9VUSXRI8=2PcJIWH0JW1
 R0
+!i10b 1
+!s100 =0iS__A?1]L3aE=58WC9?3
+Ib:@K9WnXc^]OB5ln^QH>:3
 R1
-w1549996067
+R2
+w1550125257
 8C:/Users/szk/Desktop/arbitro/verilog/control.v
 FC:/Users/szk/Desktop/arbitro/verilog/control.v
 L0 6
-R2
+R3
 r1
 !s85 0
 31
-!s108 1549996758.000000
+R7
 !s107 C:/Users/szk/Desktop/arbitro/verilog/control.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/szk/Desktop/arbitro/verilog/control.v|
 !i113 1
-R3
-R4
+R5
+R6
 vuart_rx
-!s110 1549996764
-!i10b 1
-!s100 =4V066nzn9:<G=MdP9Weg3
-I0n3=3R;bagVHFRbT>McB`1
 R0
+!i10b 1
+!s100 a:gPUSza]WfHmPk]]kV]h1
+IzNXTcEBQBZkPYN`>a<hZT2
 R1
-w1549996447
+R2
+w1550121972
 8C:/Users/szk/Desktop/arbitro/verilog/uart_rx.v
 FC:/Users/szk/Desktop/arbitro/verilog/uart_rx.v
 L0 5
-R2
+R3
 r1
 !s85 0
 31
-!s108 1549996764.000000
+R7
 !s107 C:/Users/szk/Desktop/arbitro/verilog/uart_rx.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/szk/Desktop/arbitro/verilog/uart_rx.v|
 !i113 1
-R3
-R4
+R5
+R6
 vuart_rx_tb
-!s110 1549993431
+Z8 !s110 1550125269
 !i10b 1
-!s100 bVcodTmPGK7S=EAAcRJoz1
-Ic?mL>29XDX]ZCfHWAVc<12
-R0
+!s100 >UUJjG;idI^J30@CMSeKX0
+I?]DR5QK12JHbc2i@HaHC01
 R1
-w1549993407
-8C:\Users\szk\Desktop\arbitro\verilog\uart_rx_tb.v
-FC:\Users\szk\Desktop\arbitro\verilog\uart_rx_tb.v
-L0 6
 R2
+w1550122543
+8C:/Users/szk/Desktop/arbitro/verilog/uart_rx_tb.v
+FC:/Users/szk/Desktop/arbitro/verilog/uart_rx_tb.v
+L0 8
+R3
 r1
 !s85 0
 31
-!s108 1549993431.000000
-!s107 C:\Users\szk\Desktop\arbitro\verilog\uart_rx_tb.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:\Users\szk\Desktop\arbitro\verilog\uart_rx_tb.v|
+Z9 !s108 1550125269.000000
+!s107 C:/Users/szk/Desktop/arbitro/verilog/uart_rx_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/szk/Desktop/arbitro/verilog/uart_rx_tb.v|
 !i113 1
-R3
-R4
+R5
+R6
 vuart_tx
-!s110 1549996770
+R8
 !i10b 1
-!s100 686E[k14ONMOSH[Xh=;XH1
-ICd8YKzYIm<00k?<_Q4MdV1
-R0
+!s100 8SY]199@:8^l<<<gXORc12
+ILf:R_LlbQZ?bNj7HS9ecK0
 R1
-w1549996481
+R2
+w1550122157
 8C:/Users/szk/Desktop/arbitro/verilog/uart_tx.v
 FC:/Users/szk/Desktop/arbitro/verilog/uart_tx.v
 L0 5
-R2
+R3
 r1
 !s85 0
 31
-!s108 1549996769.000000
+R9
 !s107 C:/Users/szk/Desktop/arbitro/verilog/uart_tx.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/szk/Desktop/arbitro/verilog/uart_tx.v|
 !i113 1
-R3
-R4
+R5
+R6
 vuart_tx_tb
-!s110 1549993426
+!s110 1550125267
 !i10b 1
-!s100 3LF<DdYJUB8_M1Uf>e:A12
-IE;=M@[RH3`Mj3K<BbVh1@3
-R0
+!s100 5<2hX8Nc[D3]I=lHTI2EE2
+Iec4Ee^zhM@G^zYVDG5zPE2
 R1
-w1549993420
-8C:\Users\szk\Desktop\arbitro\verilog\uart_tx_tb.v
-FC:\Users\szk\Desktop\arbitro\verilog\uart_tx_tb.v
-L0 8
 R2
+w1550122420
+8C:/Users/szk/Desktop/arbitro/verilog/uart_tx_tb.v
+FC:/Users/szk/Desktop/arbitro/verilog/uart_tx_tb.v
+L0 8
+R3
 r1
 !s85 0
 31
-!s108 1549993426.000000
-!s107 C:\Users\szk\Desktop\arbitro\verilog\uart_tx_tb.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:\Users\szk\Desktop\arbitro\verilog\uart_tx_tb.v|
-!i113 1
-R3
 R4
+!s107 C:/Users/szk/Desktop/arbitro/verilog/uart_tx_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/szk/Desktop/arbitro/verilog/uart_tx_tb.v|
+!i113 1
+R5
+R6

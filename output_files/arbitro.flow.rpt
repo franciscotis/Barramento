@@ -1,5 +1,5 @@
 Flow report for arbitro
-Tue Feb 12 15:59:44 2019
+Thu Feb 14 11:10:41 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,17 +40,17 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Tue Feb 12 15:59:35 2019       ;
+; Flow Status                        ; Successful - Thu Feb 14 11:10:32 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; arbitro                                     ;
 ; Top-level Entity Name              ; architecture                                ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE30F23C6                                ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 1,796 / 28,848 ( 6 % )                      ;
-;     Total combinational functions  ; 1,668 / 28,848 ( 6 % )                      ;
-;     Dedicated logic registers      ; 981 / 28,848 ( 3 % )                        ;
-; Total registers                    ; 981                                         ;
+; Total logic elements               ; 1,775 / 28,848 ( 6 % )                      ;
+;     Total combinational functions  ; 1,665 / 28,848 ( 6 % )                      ;
+;     Dedicated logic registers      ; 980 / 28,848 ( 3 % )                        ;
+; Total registers                    ; 980                                         ;
 ; Total pins                         ; 4 / 329 ( 1 % )                             ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 273,408 / 608,256 ( 45 % )                  ;
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 02/12/2019 15:57:49 ;
+; Start date & time ; 02/14/2019 11:08:46 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; arbitro             ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------------------------------+---------------+--------------+------------+
 ; Assignment Name                     ; Value                                                          ; Default Value ; Entity Name  ; Section Id ;
 +-------------------------------------+----------------------------------------------------------------+---------------+--------------+------------+
-; COMPILER_SIGNATURE_ID               ; 20580472809861.154999786802820                                 ; --            ; --           ; --         ;
+; COMPILER_SIGNATURE_ID               ; 88750185252792.155015332507532                                 ; --            ; --           ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                                             ; --            ; --           ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                                              ; --            ; --           ; --         ;
 ; MISC_FILE                           ; architecture/synthesis/../architecture.cmp                     ; --            ; --           ; --         ;
@@ -89,7 +89,7 @@ refer to the applicable agreement for further details.
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                                                   ; --            ; --           ; --         ;
 ; SLD_FILE                            ; architecture/synthesis/architecture.regmap                     ; --            ; --           ; --         ;
 ; SLD_FILE                            ; architecture/synthesis/architecture.debuginfo                  ; --            ; --           ; --         ;
-; SLD_INFO                            ; QSYS_NAME architecture HAS_SOPCINFO 1 GENERATION_ID 1549997825 ; --            ; architecture ; --         ;
+; SLD_INFO                            ; QSYS_NAME architecture HAS_SOPCINFO 1 GENERATION_ID 1550153285 ; --            ; architecture ; --         ;
 ; SOPCINFO_FILE                       ; architecture/synthesis/../../architecture.sopcinfo             ; --            ; --           ; --         ;
 ; SYNTHESIS_ONLY_QIP                  ; On                                                             ; --            ; --           ; --         ;
 ; TOP_LEVEL_ENTITY                    ; architecture                                                   ; arbitro       ; --           ; --         ;
@@ -101,11 +101,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:01:11     ; 1.0                     ; 4900 MB             ; 00:02:02                           ;
-; Fitter               ; 00:00:21     ; 1.0                     ; 5329 MB             ; 00:00:25                           ;
-; Assembler            ; 00:00:05     ; 1.0                     ; 4706 MB             ; 00:00:04                           ;
-; Timing Analyzer      ; 00:00:08     ; 1.1                     ; 4814 MB             ; 00:00:07                           ;
-; Total                ; 00:01:45     ; --                      ; --                  ; 00:02:38                           ;
+; Analysis & Synthesis ; 00:01:11     ; 1.0                     ; 4902 MB             ; 00:02:05                           ;
+; Fitter               ; 00:00:20     ; 1.0                     ; 5334 MB             ; 00:00:24                           ;
+; Assembler            ; 00:00:05     ; 1.0                     ; 4702 MB             ; 00:00:05                           ;
+; Timing Analyzer      ; 00:00:08     ; 1.1                     ; 4812 MB             ; 00:00:07                           ;
+; Total                ; 00:01:44     ; --                      ; --                  ; 00:02:41                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

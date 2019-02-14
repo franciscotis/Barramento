@@ -12,11 +12,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "reset_reset_n",
+					"name" : "uart_read",
 					"strict" : false
 				},
 				{
-					"name" : "uart_read",
+					"name" : "reset_reset_n",
 					"strict" : false
 				},
 				{

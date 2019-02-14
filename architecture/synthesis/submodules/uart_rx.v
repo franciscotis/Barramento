@@ -2,24 +2,23 @@
  * Implementa a parte de receptor, do protocolo rs232
 */
 
-module uart_rx #(parameter clock_bit) (
+module uart_rx #(parameter [15:0] clock_bit) (
 	input  clock,
-	input  reset,
-	input  rx,					//Entrada do uart
+	input  resetn,
+	input  rx,                 //Entrada do uart
 
-	output reg [7:0] readdata,	//Byte recebido
-	output reg done				//Habilitado quando o byte é recebido
+	output reg [7:0] readdata, //Byte recebido
+	output reg done            //Habilitado quando o byte é recebido
 );
 
-//Estados de recebimento
-localparam idle = 2'b00, start = 2'b01, data = 2'b10, stop = 2'b11; 
+localparam idle = 2'b00, start = 2'b01, data = 2'b10, stop = 2'b11; //Estados
 
-reg [1:0]  state;	//Estado atual
-reg [2:0]  index;	//Bit recebido
-reg [15:0] counter;	//Usado para aguardar clock_bit ciclos
+reg [1:0]  state;   //Estado atual
+reg [2:0]  index;   //Bit recebido
+reg [15:0] counter; //Usado para aguardar clock_bit ciclos
 
-always @(posedge clock, posedge reset) begin
-	if (reset) begin
+always @(posedge clock) begin
+	if (!resetn) begin
 		readdata <= 0;
 		done     <= 0;
 		index    <= 0;
@@ -29,26 +28,23 @@ always @(posedge clock, posedge reset) begin
 		case (state)
 			//Estado inicial
 			idle: begin
-				done <= 0;
+				done    <= 0;
+				index   <= 0;
+				counter <= 0;
 				
 				//Verifica se recebeu o start bit
-				if (~rx) begin
-					index   <= 0;
-					counter <= 0;
-					state   <= start;
-				end else
-					state   <= idle;
+				if (!rx) state <= start;
+				else     state <= idle;
 			end
 			
 			//Recebe o start bit (0)
 			start: begin
-				//Aguarda clock_bit/2 ciclos
+				//Começa a fazer a leitura na metade da transmissão
 				if (counter < clock_bit/2) begin
-					counter <= counter + 16'h0001;
+					counter <= counter + 1;
 					state   <= start;
 				end else begin
-					//Verifica novamente o start bit
-					if (~rx) begin
+					if (!rx) begin
 						counter <= 0;
 						state   <= data;
 					end else
@@ -60,15 +56,15 @@ always @(posedge clock, posedge reset) begin
 			data: begin
 				//Aguarda clock_bit ciclos
 				if (counter < clock_bit) begin
-					counter <= counter + 16'h0001;
+					counter <= counter + 1;
 					state   <= data;
 				end else begin
 					readdata[index] <= rx;	//Armazena o bit
-					counter <= 0;
+					counter         <= 0;
 					
 					//Verifica se todos os bit foram recebidos
 					if (index < 7) begin
-						index <= index + 3'b001;
+						index <= index + 1;
 						state <= data;
 					end else
 						state <= stop;
@@ -79,7 +75,7 @@ always @(posedge clock, posedge reset) begin
 			stop: begin
 				//Aguarda clock_bit ciclos
 				if (counter < clock_bit) begin
-					counter <= counter + 16'h0001;
+					counter <= counter + 1;
 					state   <= stop;
 				end else begin
 					done    <= 1;

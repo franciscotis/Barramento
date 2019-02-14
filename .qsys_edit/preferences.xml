@@ -7,7 +7,7 @@
    <irq preferredWidth="34" />
   </columns>
  </systemtable>
- <library expandedCategories="Project,Library" />
+ <library expandedCategories="Library,Project" />
  <window width="1320" height="784" x="54" y="-8" />
  <hdlexample language="VERILOG" />
 </preferences>

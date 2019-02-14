@@ -4,104 +4,112 @@
 */
 
 module control (
+	//Entradas de controle
 	input clock,
-	input reset,
-	input enable,				//Inicia a solicitação dos dados
+	input resetn,
+	input enable,           //Inicia a solicitação dos dados
+	
+	//Entradas de dados
 	input [7:0] data_rx,
 	input done_rx,
-	input active_tx,
 	input done_tx,
-	input result_checksum,
-
-	output reg [7:0] data,		//Dado recebido
-	output reg [7:0] crc,		//CRC recebido
-	output reg [1:0] status,	//Status
-	output reg enable_tx		//Iniciar transmissão
+	
+	//Saídas de controle
+	output reg resetn_rx,   //Reseta a recepção
+	output reg resetn_tx,   //Reseta a transmissão
+	output reg enable_tx,   //Inicia a transmissão
+	
+	//Saídas de dados
+	output reg [7:0] data,  //Dado recebido
+	output reg [1:0] status //Status
 );
 
-//Estados de controle
-parameter S0 = 3'b000, S1 = 3'b001, S2 = 3'b010, S3 = 3'b011, S4 = 3'b100, S5 = 3'b101, S6 = 3'b110, S7 = 3'b111;
+localparam S0 = 3'b000, S1 = 3'b001, S2 = 3'b010, S3 = 3'b011, S4 = 3'b100, S5 = 3'b101; //Estados
 
-reg [3:0] state;	//Estado atual
+reg [3:0] state; //Estado atual
+reg [7:0] crc;   //CRC recebido
 
-always @(posedge clock, posedge reset) begin
-	if (reset) begin
+//Módulos internos
+localparam key = 8'b00110111;
+wire result;
+checksum #(key) CHECKSUM (.data(data), .crc(crc), .result(result));
+
+//Código de controle
+always @(posedge clock) begin
+	if (!resetn) begin
+		resetn_rx <= 1;
+		resetn_tx <= 1;
+		enable_tx <= 0;
 		data      <= 0;
 		crc       <= 0;
 		status    <= 2; //Status - OK
-		enable_tx <= 0;
 		state     <= S0;
 	end else begin
 		case(state)
 			//Estado de espera
 			S0: begin
+				resetn_rx <= 1;
+				resetn_tx <= 1;
+				enable_tx <= 0;
+				
 				//Verifica se um novo dado foi escrito pelo software
-				if (enable) state <= S1;
-				else        state <= S0;
-			end
-			
-			//Aguarda para transmitir
-			S1: begin
-				status <= 0; //Status - Aguardando transmissão
-
-				if (active_tx | done_tx) state <= S1;
-				else                     state <= S2;
+				if (enable) begin
+					status    <= 0; //Status - Aguardando transmissão
+					resetn_tx <= 0;
+					state     <= S1;
+				end else 
+					state     <= S0;
 			end
 			
 			//Habilita a transmissão
-			S2: begin
+			S1: begin
+				resetn_tx <= 1;
 				enable_tx <= 1;
-				state     <= S3;
-			end
-			
-			//Desabilita a transmissão
-			S3: begin
-				enable_tx <= 0;
-				state     <= S4;
+				state     <= S2;
 			end
 			
 			//Aguarda o fim da transmissão
-			S4: begin
-				if (done_tx) state <= S5;
-				else         state <= S4;
+			S2: begin
+				enable_tx <= 0;
+
+				if (done_tx) begin 
+					status    <= 1; //Status - Aguardado recebimento
+					resetn_rx <= 0;
+					state     <= S3;
+				end else
+					state     <= S2;
 			end
 			
 			//Aguarda o recebimento do dado
-			S5: begin
-				status <= 1;	//Status - Aguardado recebimento
-				
-				//Verifica se um novo dado foi escrito pelo software 
-				if (enable) 
-					state <= S1;	//Reinicia o processo para um novo dado
-				else begin
-					//Verifica se o dado foi recebido
-					if (done_rx) begin
-						data  <= data_rx;
-						state <= S6;
-					end else 
-						state <= S5;
-				end
+			S3: begin
+				resetn_rx <= 1;
+
+				//Verifica se o dado foi recebido
+				if (done_rx) begin
+					data      <= data_rx;
+					resetn_rx <= 0;
+					state     <= S4;
+				end else 
+					state     <= S3;
 			end
 			
 			//Aguarda o recebimento do crc
-			S6: begin
-				//Verifica se um novo dado foi escrito pelo software 
-				if (enable)
-					state <= S1;	//Reinicia o processo para um novo dado
-				else begin
-					//Verifica se o crc foi recebido
-					if (done_rx) begin
-						crc   <= data_rx;
-						state <= S7;
-					end else 
-						state <= S6;
-				end
+			S4: begin
+				resetn_rx <= 1;
+
+				//Verifica se o crc foi recebido
+				if (done_rx) begin
+					crc       <= data_rx;
+					resetn_rx <= 0;
+					state     <= S5;
+				end else 
+					state     <= S4;
 			end
 			
-			S7: begin
+			S5: begin
 				//Verifica a integridade do dado recebido
-				if (result_checksum) status <= 2;	//Status - OK
-				else                 status <= 3;	//Status - Erro de CRC
+				if (result) status <= 2; //Status - OK
+				else        status <= 3; //Status - Erro de CRC
 
 				state <= S0;
 			end
